@@ -1,0 +1,59 @@
+
+
+comments on each page and how I over came it:
+
+	index.php:
+		2 things wrong here, forgot insert method=post and if you dont enter the email or password properly the whole thing explodes... so do it right. this was basically the last thing I did so I had a system.
+
+	create.php, this was written like a journal:
+
+		Some problems I have been facing? 
+		where do I start? 
+		I'm trying to use two different tables and connect them via a foreign key!
+		this will be easier than having one huge table but I cant seem to grab the ID
+		and insert it as a variable. I've tried a lot of things and I hope this works soon
+		because I still need to be able to modify the data, but if I get this right, 
+		than modifying it wont be so difficult.(this turned out to not be true at all)
+
+		finally got it to work, the final problem I was having was that I forgot the code:
+		$cmd = $conn->prepare($sql);
+		a little annoying. 
+
+		I'll run down a list though.
+		- Html referenced the wrong page
+		- DB spelt incorrectly
+		- I wanted shorter code so I tried it with methods, didn't work well... needs more practice.
+		- didn't realize that fetchAll() gave a 2 dimensional array, that game me problems.
+		- and then finally I found the id with userAccountInfo[0][0];
+		- after another long time I found out I was missing the prep line of code...
+		- this took a long time... I'm going to the gym!
+
+		I came back from the gym and needed to find out how to pass variables to another web page,
+		I also had to do string verification, discover easier ways of concatenation, made my if/elseif 
+		statements longer and more code friendly to read/easier to understand. Added location to table users, changed it to a drop down menu because of personal choice reasons (reduces spelling errors and not being matched to anyone. Currently there are only 3 options, I might make an
+		excel spreadsheet to add several dozen, then populate the server with another excel spreadsheet for shits and giggles. I decided on adding the userId (which is the foreign key and Primary key of the tables) and added it to the URL... not very secure, but thats not my job. I concatinated with {} because its easier for my brain but needs "" and not ''.
+
+	userAccount.php, this was written like a journal:
+
+		okay, here we are again. first problem I faced with this was getting the user first name so I decided to make a page dedicated to retrieving it. now it works, but it needed some really fancy MySQL coding to be done. next problem was getting a merged table to get both user info and their skills, more fancy MySQL coding. I was having some small formatting problems here and there and my table is going to look like shit... but I dont really care about that. Now to actually make the table.
+
+		Got the table working, not too much of a problem, styling was a bit of a pain, I have minimal CSS bootstrap and some fancy html shist I got it looking alright and semi-readable. 
+
+		now to only search people in the area...
+		currently having a problem concatenating '{$userLocation}'. the command currently works on MySQL? the variable is correct, just nothing is printing... I GOT IT!
+		echoing the problem made me realize that there were no quotes around it... therefore not a string! 
+		damn I'm dumb... I'll just copy what I wrote in the comments directly above this and BOOM! over!
+
+	accountVerification.php:
+		soo many problems... where do I begin? I wont... I just wont.
+
+	changeAccountDetails.php:
+
+		I'm running into a lot of problems. I thought it would be easier to just do a switch statement with the buttons, couldn't get that to work so I made a bunch of if statements... now I cant get a simple function to call! this is annoying.
+
+
+		Turns out it wasn't wrapped in a <form> element with a method post! I made the same mistake on the index page just a few minutes ago and it gave me the idea.
+
+		so I decided to go with a text box instead of a bunch of buttons passing data all over the place, now you can edit as much as you want!
+
+		now I'll add the sql and then a delete button... then I think I'm done? I hope so...
